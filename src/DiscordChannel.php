@@ -40,6 +40,7 @@ class DiscordChannel
         return $this->discord->send($channel, [
             'content' => $message->body,
             'embed' => $message->embed,
+            'attachment' => $message->attachment,
         ]);
     }
 }

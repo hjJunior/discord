@@ -19,6 +19,13 @@ class DiscordMessage
     public $embed;
 
     /**
+     * The attachment object attached to the message.
+     *
+     * @var array
+     */
+    public $attachment;
+
+    /**
      * @param string     $body
      * @param array|null $embed
      *
@@ -33,10 +40,11 @@ class DiscordMessage
      * @param string $body
      * @param array  $embed
      */
-    public function __construct($body = '', $embed = [])
+    public function __construct($body = '', $embed = [], $attachment = [])
     {
         $this->body = $body;
         $this->embed = $embed;
+        $this->attachment = $attachment;
     }
 
     /**
@@ -63,6 +71,20 @@ class DiscordMessage
     public function embed($embed)
     {
         $this->embed = $embed;
+
+        return $this;
+    }
+
+    /**
+     * Set the attachment object.
+     *
+     * @param $embed
+     *
+     * @return $this
+     */
+    public function attachment($attachment)
+    {
+        $this->attachment = $attachment;
 
         return $this;
     }
